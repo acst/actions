@@ -236,7 +236,7 @@ function getFileNameWithoutExtension(tool: string, version: string): string {
   const stripped_version =
     version[0] === "v" ? version.slice(1, version.length) : version;
   const os: string = osPlat == "win32" ? "windows" : osPlat;
-  const arch: string = osArch == "x64" ? "amd64" : "386";
+  const arch: string = osArch == "x64" ? "amd64" : "arm64";
   return fmt
     .replace("$OS", os)
     .replace("$ARCH", arch)
