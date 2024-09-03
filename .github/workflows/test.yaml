@@ -70,6 +70,6 @@ jobs:
       - name: Get Terraform
         uses: ./setup-terraform
         with:
-          version: v1.3.2
+          version: v1.8.5
       - name: Assert Terraform on PATH
         run: terraform --version
