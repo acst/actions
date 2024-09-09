@@ -4,7 +4,7 @@ import * as os from "os";
 import * as tc from "@actions/tool-cache";
 import * as io from "@actions/io";
 import * as fs from "fs";
-import uuidV4 from "uuid/v4";
+import { v4 as uuidV4 } from 'uuid';
 import * as path from "path";
 
 let osPlat: string = os.platform();
@@ -40,10 +40,12 @@ export async function getTool(
     let r = new Repository(owner, repo);
     release = await r.getReleaseFromTag(tag);
     toolPath = await release.getTool(tool);
-  } catch (err) {
-    core.debug(err);
+  } catch (error) {
+    if (error instanceof Error) {
+      core.debug(error.message);
+    }
 
-    throw `Failed to download ${tool}@${tag}: ${err}`;
+    throw `Failed to download ${tool}@${tag}: ${error}`;
   }
   if (bin === "") {
     addToPath(toolPath);

@@ -1,7 +1,7 @@
 import * as core from "@actions/core";
 import { getOctokit } from '@actions/github';
 import { GitHub } from '@actions/github/lib/utils';
-import * as httpm from "typed-rest-client/HttpClient";
+import * as httpm from '@actions/http-client';
 
 const githubToken = core.getInput("github_token");
 
