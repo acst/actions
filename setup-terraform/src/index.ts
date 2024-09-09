@@ -6,7 +6,9 @@ async function run() {
     const version = core.getInput("version");
     await installer.getTerraform(version);
   } catch (error) {
-    core.setFailed(error.message);
+    if (error instanceof Error) {
+      core.setFailed(error.message);
+    }
   }
 }
 
