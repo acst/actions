@@ -13,7 +13,9 @@ async function run() {
     const bin = core.getInput("bin");
     await release.getTool(owner, repo, tag, tool, bin);
   } catch (error) {
-    core.setFailed(error.message);
+    if (error instanceof Error) {
+      core.setFailed(error.message);
+    }
   }
 }
 
