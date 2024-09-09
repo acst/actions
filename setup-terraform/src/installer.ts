@@ -43,7 +43,9 @@ async function acquireTerraform(version: string): Promise<string> {
   try {
     downloadPath = await tc.downloadTool(downloadUrl);
   } catch (error) {
-    core.debug(error);
+    if (error instanceof Error) {
+      core.debug(error.message);
+    }
 
     throw `Failed to download version ${version}: ${error}`;
   }
