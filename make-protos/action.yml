@@ -1,0 +1,14 @@
+name: 'Make Protos'
+description: 'Generate protobuf files'
+inputs:
+  directory:  # directory of mrpc files
+    description: 'Directory of mrpc files'
+    required: true
+    default: 'mrpc'
+runs:
+  using: "composite"
+  steps:
+    - run: echo "${{ github.workspace }}/${{ inputs.directory }}/bin" >> $GITHUB_PATH
+      shell: bash
+    - run: $GITHUB_ACTION_PATH/make-protos.sh "${{ inputs.directory }}"
+      shell: bash
