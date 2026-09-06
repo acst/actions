@@ -31,7 +31,7 @@
     "@types/node": "^26.1.2",
     "@types/uuid": "^11.0.0",
     "@vercel/ncc": "^0.44.1",
-    "jest": "^30.4.2",
+    "jest": "^30.5.1",
     "jest-circus": "^30.4.2",
     "ts-jest": "^29.4.12"
   },
